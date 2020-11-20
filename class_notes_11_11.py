@@ -1,6 +1,7 @@
 # class notes from 11/11 where we start graphics!
 
 from graphics import *
+from Button import *
 
 def main():
 
@@ -32,6 +33,43 @@ def main():
         p2 = Point(800, 100 + i*100)
         l = Line(p1, p2)
         l.draw(win)
+
+    c = Circle(Point(600, 400), 100)
+    c.draw(win)
+    c.setFill("yellow")
+    c.setWidth(10)
+
+
+    b = Button(win, 'red', "Hi", Point(200, 200), 80)
+    quitButton = Button(win, 'red', "Quit", Point(200, 400), 60)
+
+    b.changeColor('green')
+    
+    b.t.setSize(36)
+
+
+    while True:
+        m1 = win.getMouse()
+
+        #test the quit button
+        isFinished = quitButton.isClicked(m1)
+        if isFinished:
+            break
+        
+        #testing the clicking of button
+
+        isItClicked = b.isClicked(m1)
+        if isItClicked:
+            print("it was clicked!")
+        else:
+            print("we didn't click it")
+
+        
+
+    
+    print("Done program")
+    win.close()
+
 
     
 
